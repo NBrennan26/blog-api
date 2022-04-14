@@ -2,8 +2,8 @@ import express from "express"
 import "dotenv/config"
 
 import routes from "./routes"
-import errorHandler from ".middleware/errorMiddleware"
-import connectDB from "/config/db"
+import errorHandler from "./middleware/errorMiddleware"
+import connectDB from "./config/db"
 
 connectDB()
 
@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 5000
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use("/api/posts", routes.posts)
+app.use("/api/", routes.posts)
 app.use("/api/users", routes.user)
+app.use("/api/comments", routes.comments)
 
 // Serve Frontend
 // COMING SOON! //
