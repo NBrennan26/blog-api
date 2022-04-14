@@ -1,0 +1,38 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "TOP Blog API",
+  "main": "server.js",
+  "scripts": {
+    "start": "babel-node backend/server.js",
+    "server": "nodemon --exec babel-node backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NBrennan26/blog-api.git"
+  },
+  "author": "Nick Brennan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NBrennan26/blog-api/issues"
+  },
+  "homepage": "https://github.com/NBrennan26/blog-api#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.11"
+  }
+}
