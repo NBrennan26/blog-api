@@ -12,7 +12,7 @@ const getPosts = asyncHandler(async (req, res) => {
 });
 
 // @desc    Set post
-// @route   SET /api/post
+// @route   SET /api/posts
 // @access  Private
 const setPost = asyncHandler(async (req, res) => {
   if (!req.body.title) {
@@ -46,7 +46,7 @@ const setPost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update post
-// @route   PUT /api/post/:id
+// @route   PUT /api/posts/:id
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.postid);
@@ -81,7 +81,7 @@ const updatePost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Delete post
-// @route   DELETE /api/post/:id
+// @route   DELETE /api/posts/:id
 // @access  Private
 const deletePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.postid);

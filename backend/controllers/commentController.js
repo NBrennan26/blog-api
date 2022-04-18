@@ -33,7 +33,34 @@ const setComment = asyncHandler(async (req, res) => {
 // @route   PUT /api/post/:postid/comments/:commentid
 // @access  Private
 const updateComment = asyncHandler(async (req, res) => {
-  res.json({ message: "Update Comment" });
+  const comment = await Comment.findById(req.params.commentid);
+
+  if (!comment) {
+    req.status(400);
+    throw new Error("Comment not found");
+  }
+
+  // Check for user
+  if (req.user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Check logged in user matches Comment creator
+  if (comment.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
+  }
+
+  const updatedComment = await Comment.findByIdAndUpdate(
+    req.params.commentid,
+    req.body,
+    {
+      new: true,
+    }
+  );
+
+  res.status(200).json(updatedComment);
 });
 
 // @desc    Delete comment
