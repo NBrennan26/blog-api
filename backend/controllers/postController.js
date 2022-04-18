@@ -24,6 +24,18 @@ const setPost = asyncHandler(async (req, res) => {
     throw new Error("Please add text");
   }
 
+  // Check for User
+  if (!req.user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Check that User is admin
+  if (!req.user.admin) {
+    res.status(401);
+    throw new Error("User not authorized");
+  }
+
   const post = await Post.create({
     title: req.body.title,
     text: req.body.text,
