@@ -2,8 +2,8 @@ import asyncHandler from "express-async-handler";
 
 const Post = require("../models/postModel");
 
-// @desc    Get posts
-// @route   GET /api/
+// @desc    Get all posts
+// @route   GET /api/posts
 // @access  Public
 const getPosts = asyncHandler(async (req, res) => {
   const posts = await Post.find({});
@@ -34,7 +34,7 @@ const setPost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update post
-// @route   PUT /api/posts/:id
+// @route   PUT /api/post/:id
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.id);
@@ -65,7 +65,7 @@ const updatePost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Delete post
-// @route   DELETE /api/posts/:id
+// @route   DELETE /api/post/:id
 // @access  Private
 const deletePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.id);
