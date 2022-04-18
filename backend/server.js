@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 5000
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use("/api/", routes.posts)
+app.use("/api/posts", routes.posts)
 app.use("/api/users", routes.user)
-app.use("/api/post/:postid/comments", routes.comments)
+app.use("/api/post", routes.comments)
 
 // Serve Frontend
 // COMING SOON! //

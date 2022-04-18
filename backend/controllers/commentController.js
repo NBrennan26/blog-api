@@ -15,7 +15,18 @@ const getComments = asyncHandler(async (req, res) => {
 // @route   SET /api/post/:postid/comments
 // @access  Private
 const setComment = asyncHandler(async (req, res) => {
-  res.json({ message: "Set Comment" });
+  if (!req.body.text) {
+    res.status(400);
+    throw new Error("Please add text to the comment");
+  }
+
+  const comment = await Comment.create({
+    text: req.body.text,
+    user: req.user.id,
+    post: req.params.postid,
+  });
+
+  res.status(200).json(comment);
 });
 
 // @desc    update comment
