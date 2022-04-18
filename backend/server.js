@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use("/api/", routes.posts)
 app.use("/api/users", routes.user)
-app.use("/api/comments", routes.comments)
+app.use("/api/post/:postid/comments", routes.comments)
 
 // Serve Frontend
 // COMING SOON! //

@@ -37,7 +37,7 @@ const setPost = asyncHandler(async (req, res) => {
 // @route   PUT /api/post/:id
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
-  const post = await Post.findById(req.params.id);
+  const post = await Post.findById(req.params.postid);
 
   // Check if Post exists
   if (!post) {
@@ -57,9 +57,13 @@ const updatePost = asyncHandler(async (req, res) => {
     throw new Error("User not authorized");
   }
 
-  const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const updatedPost = await Post.findByIdAndUpdate(
+    req.params.postid,
+    req.body,
+    {
+      new: true,
+    }
+  );
 
   res.status(200).json(updatedPost);
 });
@@ -68,7 +72,7 @@ const updatePost = asyncHandler(async (req, res) => {
 // @route   DELETE /api/post/:id
 // @access  Private
 const deletePost = asyncHandler(async (req, res) => {
-  const post = await Post.findById(req.params.id);
+  const post = await Post.findById(req.params.postid);
 
   // Check if Post exists
   if (!post) {
@@ -90,7 +94,7 @@ const deletePost = asyncHandler(async (req, res) => {
 
   await post.remove();
 
-  res.status(200).json({ id: req.params.id });
+  res.status(200).json({ id: req.params.postid });
 });
 
 export { getPosts, setPost, updatePost, deletePost };

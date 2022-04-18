@@ -6,6 +6,6 @@ const router = Router()
 
 router.route("/posts").get(getPosts)
 router.route("/post").post(protect, setPost)
-router.route("/post/:id").put(protect, updatePost).delete(protect, deletePost)
+router.route("/post/:postid").put(protect, updatePost).delete(protect, deletePost)
 
 export default router
