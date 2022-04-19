@@ -1,0 +1,1 @@
+react-icons/fa: https://react-icons.github.io/react-icons/icons?name=fa
