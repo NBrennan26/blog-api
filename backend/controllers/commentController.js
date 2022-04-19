@@ -67,7 +67,28 @@ const updateComment = asyncHandler(async (req, res) => {
 // @route   DELETE /api/post/:postid/comments/:commentid
 // @access  Private
 const deleteComment = asyncHandler(async (req, res) => {
-  res.json({ message: "Delete Comment" });
+  const comment = await Comment.findById(req.params.commentid);
+
+  if (!comment) {
+    res.status(400);
+    throw new Error("Comment not found");
+  }
+
+  // Check for User
+  if (!req.user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Check logged in user matches Comment creator
+  if (comment.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
+  }
+
+  await comment.remove();
+
+  res.status(200).json({ id: req.params.commentid });
 });
 
 export { getComments, setComment, updateComment, deleteComment };
