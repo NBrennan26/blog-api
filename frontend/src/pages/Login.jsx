@@ -41,6 +41,8 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    console.log("// Login.jsx onSubmit //")
+
     const userData = {
       username,
       password,
