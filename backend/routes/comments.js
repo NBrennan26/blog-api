@@ -1,15 +1,18 @@
-import { Router } from "express"
+import { Router } from "express";
 import {
   getComments,
-  setComment, 
-  updateComment, 
+  setComment,
+  updateComment,
   deleteComment,
-} from "../controllers/commentController"
-import protect from "../middleware/authMiddleware"
+} from "../controllers/commentController";
+import protect from "../middleware/authMiddleware";
 
-const router = Router()
+const router = Router();
 
 router.route("/:postid/comments").get(getComments).post(protect, setComment);
-router.route("/:postid/comments/:commentid").put(protect, updateComment).delete(protect, deleteComment);
+router
+  .route("/:postid/comments/:commentid")
+  .put(protect, updateComment)
+  .delete(protect, deleteComment);
 
-export default router
+export default router;

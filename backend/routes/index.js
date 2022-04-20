@@ -1,9 +1,9 @@
-import posts from "./posts"
+import posts from "./posts";
 import user from "./user";
-import comments from "./comments"
+import comments from "./comments";
 
 export default {
   posts,
   user,
-  comments
+  comments,
 };

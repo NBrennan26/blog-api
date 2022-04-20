@@ -51,6 +51,10 @@ function Login() {
     dispatch(login(userData));
   };
 
+  if (isLoading) {
+    // Spinner...
+  }
+
   return (
     <>
       <section>

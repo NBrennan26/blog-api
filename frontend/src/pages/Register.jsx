@@ -55,6 +55,10 @@ function Register() {
     }
   };
 
+  if (isLoading) {
+    // Spinner...
+  }
+
   return (
     <>
       <section>
