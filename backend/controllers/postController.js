@@ -2,6 +2,15 @@ import asyncHandler from "express-async-handler";
 
 const Post = require("../models/postModel");
 
+// @desc    Get specific post
+// @route   GET /api/post/:postid
+// @access  Public
+const getPost = asyncHandler(async (req, res) => {
+  const post = await Post.findById(req.params.postid);
+
+  res.status(200).json(post);
+});
+
 // @desc    Get all posts
 // @route   GET /api/posts
 // @access  Public
@@ -109,4 +118,4 @@ const deletePost = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.params.postid });
 });
 
-export { getPosts, setPost, updatePost, deletePost };
+export { getPost, getPosts, setPost, updatePost, deletePost };

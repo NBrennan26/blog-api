@@ -1,10 +1,17 @@
 import axios from "axios";
 
-const API_URL = "/api/posts/";
+const API_URL = "/api/post";
+
+// Get Post
+const getPost = async (postId) => {
+  const response = await axios.get(API_URL + "/" + postId);
+
+  return response.data;
+};
 
 // Get Posts
 const getPosts = async () => {
-  const response = await axios.get(API_URL);
+  const response = await axios.get(API_URL + "s/");
 
   return response.data;
 };
@@ -17,7 +24,7 @@ const createPost = async (postData, token) => {
     },
   };
 
-  const response = await axios.post(API_URL, postData, config);
+  const response = await axios.post(API_URL + "s/", postData, config);
 
   return response.data;
 };
@@ -30,12 +37,13 @@ const deletePost = async (postId, token) => {
     },
   };
 
-  const response = await axios.delete(API_URL + postId, config);
+  const response = await axios.delete(API_URL + "s/" + postId, config);
 
   return response.data;
 };
 
 const postService = {
+  getPost,
   getPosts,
   createPost,
   deletePost,
