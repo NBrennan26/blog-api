@@ -19,7 +19,16 @@ function Header() {
         <Link to="/">Blog</Link>
       </div>
       <ul>
-        {user ? (
+        {user && user.admin ? (
+          <>
+            <li>
+              <Link to="create">Create Post</Link>
+            </li>
+            <li>
+              <button onClick={onLogout}>Log Out</button>
+            </li>
+          </>
+        ) : user ? (
           <li>
             <button onClick={onLogout}>Log Out</button>
           </li>
