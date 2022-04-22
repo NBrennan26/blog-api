@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { createPost, reset } from "../features/posts/postSlice";
 
 function CreatePost() {
   const [formData, setFormData] = useState({
@@ -15,9 +16,17 @@ function CreatePost() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, isError, isSuccess, isLoading, message } = useSelector(
-    (state) => state.auth
+  const { posts, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.posts
   );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    dispatch(reset());
+  }, [posts, isError, isSuccess, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -27,7 +36,22 @@ function CreatePost() {
   };
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    console.log("onSubmit fired")
+
+    const postData = {
+      title, 
+      text,
+      published
+    }
+
+    dispatch(createPost(postData))
+    setFormData({})
+  };
+
+  if (isLoading) {
+    // Spinner...
   }
 
   return (
@@ -43,21 +67,21 @@ function CreatePost() {
             placeholder="Provide a Title"
             onChange={onChange}
           />
-          <textarea 
+          <textarea
             id="text"
             name="text"
             value={text}
             placeholder="Provide the main content of your blog post"
             onChange={onChange}
           />
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             id="published"
             name="published"
             value={published}
             onChange={onChange}
           />
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </section>
     </>
