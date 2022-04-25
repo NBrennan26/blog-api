@@ -37,9 +37,10 @@ function Dashboard() {
       <section>
         {posts.length > 0 ? (
           <div>
-            {posts.map((post) => (
-              <PostTile key={post._id} post={post} />
-            ))}
+            {posts.map(
+              (post) =>
+                post.published && <PostTile key={post._id} post={post} />
+            )}
           </div>
         ) : (
           <h2>There are not any Posts yet</h2>

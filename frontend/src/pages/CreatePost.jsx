@@ -8,7 +8,7 @@ function CreatePost() {
   const [formData, setFormData] = useState({
     title: "",
     text: "",
-    published: "",
+    published: false,
   });
 
   const { title, text, published } = formData;
@@ -16,27 +16,21 @@ function CreatePost() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const { posts, isError, isSuccess, isLoading, message } = useSelector(
-  //   (state) => state.posts
-  // );
+  const { isError, message } = useSelector((state) => state.posts);
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     toast.error(message);
-  //   }
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
 
-  //   if (isSuccess) {
-  //     navigate("/");
-  //   }
-
-  //   dispatch(reset());
-  // }, [posts, isError, isSuccess, message, navigate, dispatch]);
+    dispatch(reset());
+  }, [isError, message, navigate, dispatch]);
 
   const onChange = (e) => {
     if (e.target.type === "checkbox") {
-      console.log(e.target)
-      console.log("Check clicked")
-      console.log(e.target.checked)
+      console.log(e.target);
+      console.log("Check clicked");
+      console.log(e.target.checked);
       setFormData((prevState) => ({
         ...prevState,
         published: e.target.checked,
@@ -47,7 +41,6 @@ function CreatePost() {
         [e.target.name]: e.target.value,
       }));
     }
-    
   };
 
   const onSubmit = (e) => {
@@ -60,8 +53,8 @@ function CreatePost() {
     };
 
     dispatch(createPost(postData));
-    // setFormData({ title: "", text: "", published: "" });
-    // navigate("/")
+    setFormData({ title: "", text: "", published: false });
+    navigate("/");
   };
 
   // if (isLoading) {
@@ -95,7 +88,7 @@ function CreatePost() {
             value={published}
             onChange={onChange}
           />
-          <label for="published">Publish</label>
+          <label htmlFor="published">Publish</label>
           <button type="submit">Submit</button>
         </form>
       </section>
