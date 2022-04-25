@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import CommentForm from "../components/CommentForm";
 import { getPost, reset } from "../features/posts/postSlice";
 
 function Post() {
@@ -28,10 +29,14 @@ function Post() {
   }
 
   return (
-    <div>
-      <h1>{posts.title}</h1>
-      <p>{posts.text}</p>
-    </div>
+    <>
+      <div>
+        <h1>{posts.title}</h1>
+        <p>{posts.text}</p>
+      </div>
+      <CommentForm />
+      {/* Comments */}
+    </>
   );
 }
 
