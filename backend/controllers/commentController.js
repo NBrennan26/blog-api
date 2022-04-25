@@ -22,7 +22,7 @@ const setComment = asyncHandler(async (req, res) => {
   const comment = await Comment.create({
     text: req.body.text,
     user: req.user.id,
-    post: req.params.postid,
+    post: req.body.postid,
   });
 
   res.status(200).json(comment);

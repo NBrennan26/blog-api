@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { createComment } from "../features/comments/commentSlice";
+
 
 function CommentForm() {
+  const dispatch = useDispatch()
   const [formDisplay, setFormDisplay] = useState({
     isDisplayed: false,
   });
   const [text, setText] = useState("");
+  const { postid } = useParams();
 
   const { user } = useSelector((state) => state.auth);
 
@@ -20,7 +25,12 @@ function CommentForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // Add comment logic (commentSlice/commentService)
+    const commentData = {
+      text,
+      postid,
+    }
+
+    dispatch(createComment(commentData))
   };
 
   return (

@@ -41,8 +41,7 @@ function Post() {
         <p>{posts.text}</p>
       </div>
       <CommentForm />
-      {/* Comments */}
-      {/* getComments(postid) */}
+
       <section>
         {comments.length > 0 ? (
           <div>
