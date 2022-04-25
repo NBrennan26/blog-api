@@ -8,6 +8,10 @@ const Comment = require("../models/commentModel");
 const getComments = asyncHandler(async (req, res) => {
   const comments = await Comment.find({ post: req.params.postid });
 
+  console.log(req.params.postid)
+  console.log("Get comments Called")
+  console.log(comments)
+
   res.status(200).json(comments);
 });
 

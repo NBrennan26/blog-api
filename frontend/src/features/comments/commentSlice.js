@@ -53,38 +53,38 @@ export const commentSlice = createSlice({
   name: "comment",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    resetComment: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-    .addCase(createComment.pending, (state) => {
-      state.isLoading = true;
-    })
-    .addCase(createComment.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.isSuccess = true;
-      state.posts.push(action.payload);
-    })
-    .addCase(createComment.rejected, (state, action) => {
-      state.isLoading = false;
-      state.isError = true;
-      state.message = action.payload;
-    })
-    .addCase(getComments.pending, (state) => {
-      state.isLoading = true;
-    })
-    .addCase(getComments.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.isSuccess = true;
-      state.posts = action.payload;
-    })
-    .addCase(getComments.rejected, (state, action) => {
-      state.isLoading = false;
-      state.isError = true;
-      state.message = action.payload;
-    })
+      .addCase(createComment.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createComment.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.comments.push(action.payload);
+      })
+      .addCase(createComment.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getComments.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getComments.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.comments = action.payload;
+      })
+      .addCase(getComments.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      });
   },
 });
 
-export const { reset } = commentSlice.actions
-export default commentSlice.reducer
+export const { resetComment } = commentSlice.actions;
+export default commentSlice.reducer;

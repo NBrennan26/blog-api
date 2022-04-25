@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CommentForm from "../components/CommentForm";
+import CommentTile from "../components/CommentTile";
 import { getPost, reset } from "../features/posts/postSlice";
+import { getComments, resetComment } from "../features/comments/commentSlice";
 
 function Post() {
   const { postid } = useParams();
@@ -11,6 +13,7 @@ function Post() {
   const { posts, isError, isLoading, message } = useSelector(
     (state) => state.posts
   );
+  const { comments } = useSelector((state) => state.comments);
 
   useEffect(() => {
     if (isError) {
@@ -19,8 +22,11 @@ function Post() {
 
     dispatch(getPost(postid));
 
+    dispatch(getComments(postid));
+
     return () => {
       dispatch(reset());
+      dispatch(resetComment());
     };
   }, [postid, isError, message, dispatch]);
 
@@ -36,6 +42,18 @@ function Post() {
       </div>
       <CommentForm />
       {/* Comments */}
+      {/* getComments(postid) */}
+      <section>
+        {comments.length > 0 ? (
+          <div>
+            {comments.map((comment) => (
+              <CommentTile key={comment._id} comment={comment} />
+            ))}
+          </div>
+        ) : (
+          <h2>There are not any Comments yet</h2>
+        )}
+      </section>
     </>
   );
 }
