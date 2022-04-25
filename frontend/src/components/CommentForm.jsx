@@ -19,6 +19,8 @@ function CommentForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    // Add comment logic (commentSlice/commentService)
   };
 
   return (
