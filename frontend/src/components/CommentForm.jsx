@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { createComment } from "../features/comments/commentSlice";
 
-
 function CommentForm() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [formDisplay, setFormDisplay] = useState({
     isDisplayed: false,
   });
@@ -13,6 +13,14 @@ function CommentForm() {
   const { postid } = useParams();
 
   const { user } = useSelector((state) => state.auth);
+  const { comments, isError, message } = useSelector((state) => state.comments);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+  }, [isError, message, comments]);
 
   const toggleFormDisplay = () => {
     if (formDisplay.isDisplayed) {
@@ -28,9 +36,10 @@ function CommentForm() {
     const commentData = {
       text,
       postid,
-    }
+    };
 
-    dispatch(createComment(commentData))
+    dispatch(createComment(commentData));
+    setFormDisplay({ isDisplayed: false });
   };
 
   return (
