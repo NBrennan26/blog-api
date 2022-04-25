@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 
 function Login() {
@@ -21,7 +21,7 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
     if (isSuccess || user) {
@@ -40,8 +40,6 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    console.log("// Login.jsx onSubmit //")
 
     const userData = {
       username,

@@ -33,9 +33,6 @@ export const register = createAsyncThunk(
 // Log In User
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   try {
-    console.log("// authSlice.js Log In User //")
-    console.log(user)
-
     return await authService.login(user);
   } catch (error) {
     const message =

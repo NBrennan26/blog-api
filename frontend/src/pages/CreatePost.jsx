@@ -38,16 +38,14 @@ function CreatePost() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log("onSubmit fired")
-
     const postData = {
-      title, 
+      title,
       text,
-      published
-    }
+      published,
+    };
 
-    dispatch(createPost(postData))
-    setFormData({})
+    dispatch(createPost(postData));
+    setFormData({});
   };
 
   if (isLoading) {
