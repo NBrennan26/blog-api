@@ -4,7 +4,6 @@ import asyncHandler from "express-async-handler";
 const User = require("../models/userModel");
 
 const protect = asyncHandler(async (req, res, next) => {
-  console.log("Running Auth Process...");
   let token;
 
   if (

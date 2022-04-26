@@ -19,7 +19,6 @@ function CommentForm() {
     if (isError) {
       toast.error(message);
     }
-
   }, [isError, message, comments]);
 
   const toggleFormDisplay = () => {

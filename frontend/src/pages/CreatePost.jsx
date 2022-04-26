@@ -28,9 +28,6 @@ function CreatePost() {
 
   const onChange = (e) => {
     if (e.target.type === "checkbox") {
-      console.log(e.target);
-      console.log("Check clicked");
-      console.log(e.target.checked);
       setFormData((prevState) => ({
         ...prevState,
         published: e.target.checked,

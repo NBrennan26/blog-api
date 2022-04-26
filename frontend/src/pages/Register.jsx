@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 
 function Register() {
@@ -23,7 +23,7 @@ function Register() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
     if (isSuccess || user) {
@@ -44,7 +44,7 @@ function Register() {
     e.preventDefault();
 
     if (password !== password2) {
-      toast.error("Passwords do not match")
+      toast.error("Passwords do not match");
     } else {
       const userData = {
         username,

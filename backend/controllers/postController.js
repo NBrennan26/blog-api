@@ -24,10 +24,6 @@ const getPosts = asyncHandler(async (req, res) => {
 // @route   SET /api/posts
 // @access  Private
 const setPost = asyncHandler(async (req, res) => {
-  console.log("setPost called")
-  console.log(req.body)
-  console.log(req.user)
-
   if (!req.body.title) {
     res.status(400);
     throw new Error("Please add a title");
@@ -54,8 +50,6 @@ const setPost = asyncHandler(async (req, res) => {
     text: req.body.text,
     published: req.body.published,
   });
-
-  console.log(post)
 
   res.status(200).json(post);
 });
