@@ -8,15 +8,15 @@ function PostTile({ post }) {
 
   const confirmDelete = () => {
     confirmAlert({
-      title: "Confirm Delete",
-      message: "Are you sure you want to delete this post?",
+      title: "Confirm Post Deletion",
+      message: "Are you sure you want to permanently delete this post?",
       buttons: [
         {
-          label: "Delete",
+          label: "Yes, Delete",
           onClick: () => console.log("Will Delete"),
         },
         {
-          label: "DO NOT DELETE",
+          label: "NO! DO NOT DELETE!",
           onClick: () => console.log("Crisis Averted"),
         },
       ],

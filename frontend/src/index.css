@@ -1,0 +1,4 @@
+/* react-confirm-alert button */
+.react-confirm-alert-button-group :first-child {
+  background-color: red;
+}
