@@ -58,6 +58,9 @@ const setPost = asyncHandler(async (req, res) => {
 // @route   PUT /api/posts/:id
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
+
+  console.log("update post fired on server")
+  
   const post = await Post.findById(req.params.postid);
 
   // Check if Post exists
