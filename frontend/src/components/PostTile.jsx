@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { deletePost } from "../features/posts/postSlice";
 
 function PostTile({ post }) {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
   const confirmDelete = () => {
@@ -13,7 +15,7 @@ function PostTile({ post }) {
       buttons: [
         {
           label: "Yes, Delete",
-          onClick: () => console.log("Will Delete"),
+          onClick: () => dispatch(deletePost(post._id)),
         },
         {
           label: "NO! DO NOT DELETE!",
