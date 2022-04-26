@@ -11,6 +11,7 @@ function Dashboard() {
   const { posts, isError, isLoading, message } = useSelector(
     (state) => state.posts
   );
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isError) {
@@ -35,7 +36,15 @@ function Dashboard() {
       </section>
 
       <section>
-        {posts.length > 0 ? (
+        {/* If user is admin, show all posts */}
+        {/* Otherwise only show published posts */}
+        {user && user.admin ? (
+          <div>
+            {posts.map((post) => (
+              <PostTile key={post._id} post={post} />
+            ))}
+          </div>
+        ) : posts.length > 0 ? (
           <div>
             {posts.map(
               (post) =>

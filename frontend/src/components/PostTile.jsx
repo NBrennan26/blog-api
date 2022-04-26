@@ -6,6 +6,7 @@ function PostTile({ post }) {
       <section>
         <h1>
           <Link to={{ pathname: `/post/${post._id}` }}>{post.title}</Link>
+          <span>{!post.published && " (unpublished)"}</span>
         </h1>
       </section>
       <section>
