@@ -49,10 +49,10 @@ export const getComments = createAsyncThunk(
 // Delete Comment
 export const deleteComment = createAsyncThunk(
   "comments/delete",
-  async (id, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await commentService.deleteComment(id, token);
+      return await commentService.deleteComment(data, token);
     } catch (error) {
       const message =
         (error.response &&

@@ -26,9 +26,26 @@ const getComments = async (postId) => {
   return response.data;
 };
 
+// Delete Comment
+const deleteComment = async (data, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(
+    API_URL + data.postid + "/comments/" + data.commentid,
+    config
+  );
+
+  return response.data;
+};
+
 const commentService = {
   createComment,
   getComments,
+  deleteComment,
 };
 
 export default commentService;
