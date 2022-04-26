@@ -40,7 +40,6 @@ function CommentForm() {
     dispatch(createComment(commentData));
     setFormDisplay({ isDisplayed: false });
     setText("");
-    window.location.reload(); // Reload page to populate user data
   };
 
   return (
