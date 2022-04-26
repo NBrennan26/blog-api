@@ -1,4 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
+import { deleteComment } from "../features/comments/commentSlice";
+
 function CommentTile({ comment }) {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <>
       <div>CommentTile</div>
@@ -7,6 +14,9 @@ function CommentTile({ comment }) {
         <p>{comment.text}</p>
         <p>{new Date(comment.updatedAt).toLocaleString("en-US")}</p>
       </section>
+      {user && user.username === comment.user.username && (
+        <button onClick={() => dispatch(deleteComment(comment._id))}>X</button>
+      )}
     </>
   );
 }

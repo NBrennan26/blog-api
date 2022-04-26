@@ -38,7 +38,7 @@ function Dashboard() {
       <section>
         {/* If user is admin, show all posts */}
         {/* Otherwise only show published posts */}
-        {user && user.admin ? (
+        {user && user.admin && posts.length > 0 ? (
           <div>
             {posts.map((post) => (
               <PostTile key={post._id} post={post} />

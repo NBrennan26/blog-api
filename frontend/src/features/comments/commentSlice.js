@@ -47,7 +47,23 @@ export const getComments = createAsyncThunk(
 );
 
 // Delete Comment
-// COMING SOON //
+export const deleteComment = createAsyncThunk(
+  "comments/delete",
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await commentService.deleteComment(id, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const commentSlice = createSlice({
   name: "comment",
@@ -79,6 +95,21 @@ export const commentSlice = createSlice({
         state.comments = action.payload;
       })
       .addCase(getComments.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(deleteComment.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteComment.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.comments = state.comments.filter(
+          (comment) => comment._id !== action.payload.id
+        );
+      })
+      .addCase(deleteComment.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
