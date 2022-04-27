@@ -25,22 +25,28 @@ function PostTile({ post }) {
     });
   };
 
+  const textSample = post.text.slice(0, 50)
+
   return (
-    <div>
-      <section>
-        <h1>
-          <Link to={{ pathname: `/post/${post._id}` }}>{post.title}</Link>
-          <span>{!post.published && " (unpublished)"}</span>
-        </h1>
-      </section>
-      <section>
-        <p>{post.text}</p>
-      </section>
-      {user && user.admin && (
-        <section>
-          <button onClick={confirmDelete}>X</button>
+    <div className="post-tile-cont">
+      <Link to={{ pathname: `/post/${post._id}` }}>
+        <section className="post-tile-title">
+          <h1>
+            {post.title}
+            <span>{!post.published && " (unpublished)"}</span>
+          </h1>
         </section>
-      )}
+        <section className="post-tile-text">
+          <p>{textSample}</p>
+        </section>
+        {user && user.admin && (
+          <section className="post-tile-btn-cont">
+            <button className="post-tile-btn" onClick={confirmDelete}>
+              X
+            </button>
+          </section>
+        )}
+      </Link>
     </div>
   );
 }

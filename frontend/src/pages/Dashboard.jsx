@@ -30,32 +30,25 @@ function Dashboard() {
   }
 
   return (
-    <>
-      <section>
-        <h1>Welcome to the Blog</h1>
-      </section>
-
-      <section>
-        {/* If user is admin, show all posts */}
-        {/* Otherwise only show published posts */}
-        {user && user.admin && posts.length > 0 ? (
-          <div>
-            {posts.map((post) => (
-              <PostTile key={post._id} post={post} />
-            ))}
-          </div>
-        ) : posts.length > 0 ? (
-          <div>
-            {posts.map(
-              (post) =>
-                post.published && <PostTile key={post._id} post={post} />
-            )}
-          </div>
-        ) : (
-          <h2>There are not any Posts yet</h2>
-        )}
-      </section>
-    </>
+    <section>
+      {/* If user is admin, show all posts */}
+      {/* Otherwise only show published posts */}
+      {user && user.admin && posts.length > 0 ? (
+        <div className="post-tiles-cont">
+          {posts.map((post) => (
+            <PostTile key={post._id} post={post} />
+          ))}
+        </div>
+      ) : posts.length > 0 ? (
+        <div className="post-tiles-cont">
+          {posts.map(
+            (post) => post.published && <PostTile key={post._id} post={post} />
+          )}
+        </div>
+      ) : (
+        <h2>There are not any Posts yet</h2>
+      )}
+    </section>
   );
 }
 

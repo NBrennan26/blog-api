@@ -19,10 +19,12 @@ header {
   align-items: center;
   height: 5vh;
   min-height: 50px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   margin-bottom: 1vh;
 }
-.header-link-cont, .header-home-cont {
+.header-link-cont,
+.header-home-cont {
   height: 100%;
   display: flex;
   align-items: center;
@@ -71,6 +73,43 @@ footer {
 }
 .github-icon {
   height: 100%;
+}
+
+/************/
+/* PostTile */
+/************/
+
+.post-tiles-cont {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh;
+}
+.post-tile-cont {
+  /* border: 2px solid red; */
+  margin: 2vh 2vh;
+  height: 10vh;
+  max-height: 75px;
+  min-height: 50px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.post-tile-cont :first-child {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5vh;
+}
+.post-tile-title {
+  color: black;
+  font-weight: 600;
+  font-size: larger;
+}
+.post-tile-text {
+  color: rgba(0, 0, 0, 0.76);
+  align-self: flex-start;
+  padding-left: 2vw;
 }
 
 /* react-confirm-alert button */
