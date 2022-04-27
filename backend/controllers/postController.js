@@ -55,12 +55,9 @@ const setPost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update post
-// @route   PUT /api/posts/:id
+// @route   PUT /api/posts/:postid
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
-
-  console.log("update post fired on server")
-  
   const post = await Post.findById(req.params.postid);
 
   // Check if Post exists
@@ -93,7 +90,7 @@ const updatePost = asyncHandler(async (req, res) => {
 });
 
 // @desc    Delete post
-// @route   DELETE /api/posts/:id
+// @route   DELETE /api/posts/:postid
 // @access  Private
 const deletePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.postid);

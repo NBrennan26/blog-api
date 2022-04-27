@@ -50,7 +50,11 @@ const updatePost = async (postData, token) => {
     },
   };
 
-  const response = await axios.put(API_URL + "s/" + postData.postId, config);
+  const response = await axios.put(
+    API_URL + "s/" + postData.postId,
+    postData,
+    config
+  );
 
   return response.data;
 };

@@ -54,8 +54,6 @@ function UpdatePost() {
       published,
     };
 
-    console.log(postData)
-
     dispatch(updatePost(postData));
     setFormData({ title: "", text: "", published: false });
     navigate("/");
