@@ -85,13 +85,14 @@ footer {
   margin: 2vh;
 }
 .post-tile-cont {
-  /* border: 2px solid red; */
+  position: relative;
   margin: 2vh 2vh;
   height: 10vh;
   max-height: 75px;
   min-height: 50px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  z-index: 0;
 }
 .post-tile-cont :first-child {
   height: 100%;
@@ -100,6 +101,9 @@ footer {
   justify-content: center;
   align-items: center;
   padding-bottom: 0.5vh;
+}
+.post-tile-cont:hover .post-tile-btn-cont {
+  display: block;
 }
 .post-tile-title {
   color: black;
@@ -111,6 +115,17 @@ footer {
   align-self: flex-start;
   padding-left: 2vw;
 }
+.post-tile-btn-cont {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  display: none;
+}
+
+.post-tile-btn:hover {
+  cursor: crosshair;
+}
+
 
 /* react-confirm-alert button */
 .react-confirm-alert-button-group :first-child {
