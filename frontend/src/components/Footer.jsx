@@ -1,6 +1,13 @@
+import { FaGithub } from "react-icons/fa";
+
+
 function Footer() {
   return (
-    <div>Footer</div>
+      <footer>
+        <a href="https://github.com/NBrennan26" target="_blank" rel="noreferrer">
+          <FaGithub className="github-icon"/>
+        </a>
+      </footer>
   )
 }
 

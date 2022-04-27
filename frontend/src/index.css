@@ -53,6 +53,26 @@ header {
   cursor: pointer;
 }
 
+/**********/
+/* Footer */
+/**********/
+
+footer {
+  height: 4vh;
+  min-height: 30px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.github-icon {
+  height: 100%;
+}
+
 /* react-confirm-alert button */
 .react-confirm-alert-button-group :first-child {
   background-color: red;
