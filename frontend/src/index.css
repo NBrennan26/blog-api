@@ -14,15 +14,15 @@ a {
 /**********/
 
 header {
-  border: 2px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 5vh;
   min-height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin-bottom: 1vh;
 }
 .header-link-cont, .header-home-cont {
-  border: 2px solid black;
   height: 100%;
   display: flex;
   align-items: center;
@@ -31,9 +31,9 @@ header {
   color: black;
   font-size: large;
   font-weight: 500;
+  margin: 0 1.5vh;
 }
 .header-list {
-  border: 2px solid red;
   display: flex;
 }
 .header-list-item {
