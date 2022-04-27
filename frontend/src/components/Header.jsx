@@ -15,34 +15,40 @@ function Header() {
 
   return (
     <header>
-      <div>
+      <div className="header-home-cont">
         <Link to="/">Blog</Link>
       </div>
-      <ul>
-        {user && user.admin ? (
-          <>
-            <li>
-              <Link to="create">Create Post</Link>
+      <div className="header-link-cont">
+        <ul className="header-list">
+          {user && user.admin ? (
+            <>
+              <li className="header-list-item">
+                <Link to="create">Create Post</Link>
+              </li>
+              <li className="header-list-item">
+                <button onClick={onLogout} className="header-btn">
+                  Log Out
+                </button>
+              </li>
+            </>
+          ) : user ? (
+            <li className="header-list-item">
+              <button onClick={onLogout} className="header-btn">
+                Log Out
+              </button>
             </li>
-            <li>
-              <button onClick={onLogout}>Log Out</button>
-            </li>
-          </>
-        ) : user ? (
-          <li>
-            <button onClick={onLogout}>Log Out</button>
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-          </>
-        )}
-      </ul>
+          ) : (
+            <>
+              <li className="header-list-item">
+                <Link to="/login">Log In</Link>
+              </li>
+              <li className="header-list-item">
+                <Link to="/register">Register</Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </header>
   );
 }

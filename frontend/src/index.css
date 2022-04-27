@@ -1,3 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;500;600&display=swap");
+
+body button {
+  font-family: "Radio Canada", sans-serif;
+  font-weight: 300;
+  font-size: medium;
+}
+a {
+  text-decoration: none;
+}
+
+/**********/
+/* Header */
+/**********/
+
+header {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  min-height: 50px;
+}
+.header-link-cont, .header-home-cont {
+  border: 2px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header-home-cont a {
+  color: black;
+  font-size: large;
+  font-weight: 500;
+}
+.header-list {
+  border: 2px solid red;
+  display: flex;
+}
+.header-list-item {
+  margin: 0 1.5vh;
+  display: flex;
+  align-items: center;
+}
+.header-list-item a {
+  color: black;
+}
+.header-btn {
+  background: none;
+  border: none;
+  font: inherit;
+}
+.header-btn:hover {
+  cursor: pointer;
+}
+
 /* react-confirm-alert button */
 .react-confirm-alert-button-group :first-child {
   background-color: red;
