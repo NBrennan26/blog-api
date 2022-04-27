@@ -121,13 +121,34 @@ footer {
   right: 4px;
   display: none;
 }
-
 .post-tile-btn:hover {
   cursor: crosshair;
 }
-
-
 /* react-confirm-alert button */
 .react-confirm-alert-button-group :first-child {
   background-color: red;
 }
+
+/********/
+/* Post */
+/********/
+
+
+/***************/
+/* CommentTile */
+/***************/
+
+
+/***************/
+/* CommentForm */
+/***************/
+
+
+/*********/
+/* Login */
+/*********
+/
+
+/************/
+/* Register */
+/************/
