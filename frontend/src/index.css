@@ -3,12 +3,12 @@
 body {
   margin-bottom: 4vh;
 }
-
 body button {
   font-family: "Radio Canada", sans-serif;
   font-weight: 300;
   font-size: medium;
 }
+
 a {
   text-decoration: none;
 }
@@ -233,12 +233,39 @@ footer {
   position: relative;
   padding: 5px 5px 25px 5px;
 }
-.comment-tile-text {
-}
+
 .comment-tile-date {
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+
+/**************/
+/* Post Forms */
+/**************/
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2vh;
+}
+.post-form-title {
+  width: 50%;
+}
+.post-form-text {
+  width: 80%;
+  height: 70vh;
+  min-height: 50px;
+  margin-bottom: 2vh;
+}
+.post-form-checkbox-cont {
+  margin-bottom: 2vh;
+}
+.post-form-btn {
+  font: inherit;
+  cursor: pointer;
+  font-size: large;
 }
 
 /*********/

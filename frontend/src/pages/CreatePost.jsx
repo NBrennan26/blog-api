@@ -59,37 +59,41 @@ function CreatePost() {
   // }
 
   return (
-    <>
-      <div>CreatePost</div>
-      <section>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            placeholder="Provide a Title"
-            onChange={onChange}
-          />
-          <textarea
-            id="text"
-            name="text"
-            value={text}
-            placeholder="Provide the main content of your blog post"
-            onChange={onChange}
-          />
-          <input
-            type="checkbox"
-            id="published"
-            name="published"
-            value={published}
-            onChange={onChange}
-          />
-          <label htmlFor="published">Publish</label>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-    </>
+    <form className="post-form" onSubmit={onSubmit}>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        className="post-form-title"
+        value={title}
+        placeholder="Provide a Title"
+        onChange={onChange}
+      />
+      <textarea
+        id="text"
+        name="text"
+        className="post-form-text"
+        value={text}
+        placeholder="Provide the main content of your blog post"
+        onChange={onChange}
+      />
+      <div className="post-form-checkbox-cont">
+        <input
+          type="checkbox"
+          id="published"
+          name="published"
+          className="post-form-checkbox"
+          value={published}
+          onChange={onChange}
+        />
+        <label htmlFor="published">Publish</label>
+      </div>
+      <div className="post-form-btn-cont">
+        <button className="post-form-btn" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
   );
 }
 
