@@ -13,17 +13,27 @@ function CommentTile({ comment }) {
   };
 
   return (
-    <>
-      <div>CommentTile</div>
-      <section>
-        <p>{comment.user.username}</p>
-        <p>{comment.text}</p>
-        <p>{new Date(comment.updatedAt).toLocaleString("en-US")}</p>
+    <div className="comment-tile-cont">
+      <section className="comment-tile-head">
+        <div className="comment-tile-user">{comment.user.username}</div>
+        <div className="comment-tile-btn-cont">
+          {user && user.username === comment.user.username && (
+            <button
+              className="comment-tile-btn"
+              onClick={() => dispatch(deleteComment(commentData))}
+            >
+              X
+            </button>
+          )}
+        </div>
       </section>
-      {user && user.username === comment.user.username && (
-        <button onClick={() => dispatch(deleteComment(commentData))}>X</button>
-      )}
-    </>
+      <section className="comment-tile-body">
+        <span className="comment-tile-text">{comment.text}</span>
+        <span className="comment-tile-date">
+          {new Date(comment.updatedAt).toLocaleString("en-US")}
+        </span>
+      </section>
+    </div>
   );
 }
 

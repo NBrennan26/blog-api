@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;500;600&display=swap");
 
+body {
+  margin-bottom: 4vh;
+}
+
 body button {
   font-family: "Radio Canada", sans-serif;
   font-weight: 300;
@@ -70,6 +74,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
 }
 .github-icon {
   height: 100%;
@@ -178,9 +183,10 @@ footer {
   width: 80%;
   display: flex;
   justify-content: center;
-  padding: .5vh 0;
+  padding: 0.5vh 0;
 }
-.add-comment-btn, .submit-comment-btn {
+.add-comment-btn,
+.submit-comment-btn {
   cursor: pointer;
   font: inherit;
 }
@@ -199,9 +205,41 @@ footer {
 /* CommentTile */
 /***************/
 
-
-
-
+.comment-tile-cont {
+  margin-bottom: 3vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.comment-tile-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3vh;
+  min-height: 20px;
+}
+.comment-tile-user {
+  margin-left: 1vh;
+}
+.comment-tile-btn-cont {
+  margin-right: 0.5vh;
+}
+.comment-tile-btn {
+  cursor: pointer;
+  font: inherit;
+  color: red;
+}
+.comment-tile-body {
+  position: relative;
+  padding: 5px 5px 25px 5px;
+}
+.comment-tile-text {
+}
+.comment-tile-date {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
 
 /*********/
 /* Login */
