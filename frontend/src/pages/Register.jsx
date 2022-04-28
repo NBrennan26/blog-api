@@ -61,58 +61,59 @@ function Register() {
   }
 
   return (
-    <>
-      <section>
-        <h1>Register</h1>
-      </section>
-      <section>
-        <form onSubmit={onSubmit}>
-          <div>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              placeholder="Enter Username"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter Email"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter Password"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              id="password2"
-              name="password2"
-              value={password2}
-              placeholder="Confirm Password"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </section>
-    </>
+    <div className="user-form-cont">
+      <form className="user-form" onSubmit={onSubmit}>
+        <div className="user-username-cont user-form-elem">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            className="user-form-field"
+            value={username}
+            placeholder="Username"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-form-elem">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="user-form-field"
+            value={email}
+            placeholder="Email"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-form-elem">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className="user-form-field"
+            value={password}
+            placeholder="Password"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-form-elem">
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            className="user-form-field"
+            value={password2}
+            placeholder="Confirm Password"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-submit-cont">
+          <button className="user-submit-btn" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

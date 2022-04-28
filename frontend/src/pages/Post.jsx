@@ -41,6 +41,9 @@ function Post() {
       <div className="post-cont">
         <div className="post-title-cont">
           <span className="post-title">{posts.title}</span>
+          <span className="post-date">
+            {new Date(posts.createdAt).toLocaleDateString("en-US")}
+          </span>
           <div className="post-edit-cont">
             {user && user.admin && (
               <button

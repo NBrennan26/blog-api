@@ -54,38 +54,37 @@ function Login() {
   }
 
   return (
-    <>
-      <section>
-        <h1>Login</h1>
-      </section>
-      <section>
-        <form onSubmit={onSubmit}>
-          <div>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              placeholder="Enter your Username"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter Password"
-              onChange={onChange}
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </section>
-    </>
+    <div className="user-form-cont">
+      <form className="user-form" onSubmit={onSubmit}>
+        <div className="user-username-cont user-form-elem">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            className="user-form-field"
+            value={username}
+            placeholder="Username"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-form-elem">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className="user-form-field"
+            value={password}
+            placeholder="Password"
+            onChange={onChange}
+          />
+        </div>
+        <div className="user-submit-cont">
+          <button className="user-submit-btn" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
