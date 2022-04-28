@@ -159,7 +159,7 @@ footer {
   display: flex;
   justify-self: center;
   align-items: center;
-  margin-bottom: .5vh;
+  margin-bottom: 0.5vh;
 }
 .post-date {
   font-size: smaller;
@@ -239,7 +239,6 @@ footer {
   position: relative;
   padding: 5px 5px 25px 5px;
 }
-
 .comment-tile-date {
   position: absolute;
   bottom: 5px;

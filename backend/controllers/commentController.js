@@ -6,10 +6,9 @@ const Comment = require("../models/commentModel");
 // @route   GET /api/post/:postid/comments
 // @access  Public
 const getComments = asyncHandler(async (req, res) => {
-  const comments = await Comment.find({ post: req.params.postid }).populate(
-    "user",
-    "username"
-  );
+  const comments = await Comment.find({ post: req.params.postid })
+    .populate("user", "username")
+    .sort({ createdAt: -1 });
   res.status(200).json(comments);
 });
 
