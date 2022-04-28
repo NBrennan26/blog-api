@@ -133,16 +133,50 @@ footer {
 /* Post */
 /********/
 
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post-cont {
+  width: 95%;
+  margin-bottom: 2vh;
+}
+.post-title-cont {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 4vh;
+  min-height: 30px;
+}
+.post-title {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+.post-edit-cont {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.post-edit-btn {
+  font: inherit;
+  cursor: pointer;
+}
+.post-comment-cont {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1vh;
+}
 
 /***************/
 /* CommentTile */
 /***************/
 
-
 /***************/
 /* CommentForm */
 /***************/
-
 
 /*********/
 /* Login */

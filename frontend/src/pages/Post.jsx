@@ -37,25 +37,32 @@ function Post() {
   }
 
   return (
-    <>
-      <div>
-        <h1>{posts.title}</h1>
-        <p>{posts.text}</p>
+    <div className="post-page">
+      <div className="post-cont">
+        <div className="post-title-cont">
+          <span className="post-title">{posts.title}</span>
+          <div className="post-edit-cont">
+            {user && user.admin && (
+              <button
+                className="post-edit-btn"
+                onClick={() =>
+                  navigate(`/update`, {
+                    state: { post: posts, postId: postid },
+                  })
+                }
+              >
+                Edit
+              </button>
+            )}
+          </div>
+        </div>
+        <div className="post-text-cont">
+          <span className="post-text">{posts.text}</span>
+        </div>
       </div>
-      <div>
-        {user && user.admin && (
-          <button
-            onClick={() =>
-              navigate(`/update`, { state: { post: posts, postId: postid } })
-            }
-          >
-            Edit
-          </button>
-        )}
-      </div>
-      <CommentForm />
+      <CommentForm className="post-comment-form" />
 
-      <section>
+      <section className="post-comment-cont">
         {comments.length > 0 ? (
           <div>
             {comments.map((comment) => (
@@ -63,10 +70,10 @@ function Post() {
             ))}
           </div>
         ) : (
-          <h2>There are not any Comments yet</h2>
+          <h2>~There are not any Comments yet~</h2>
         )}
       </section>
-    </>
+    </div>
   );
 }
 
