@@ -171,17 +171,41 @@ footer {
 }
 
 /***************/
-/* CommentTile */
-/***************/
-
-/***************/
 /* CommentForm */
 /***************/
 
+.comment-form-cont {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  padding: .5vh 0;
+}
+.add-comment-btn, .submit-comment-btn {
+  cursor: pointer;
+  font: inherit;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.comment-text {
+  width: 60vw;
+  height: 10vh;
+}
+
+/***************/
+/* CommentTile */
+/***************/
+
+
+
+
+
 /*********/
 /* Login */
-/*********
-/
+/*********/
 
 /************/
 /* Register */
