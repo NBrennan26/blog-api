@@ -1,12 +1,8 @@
-TOP Blog API
-
-Reference: https://www.theodinproject.com/lessons/nodejs-blog-api
-
 # Full Stack Blog
 
 [Visit the Site](https://nbrennanblog.herokuapp.com/)
 
-The purpose of this project was to build a full stack application using the MERN stack. 
+The purpose of this project was to build a full stack application using the MERN stack.
 
 ## Built With
 
